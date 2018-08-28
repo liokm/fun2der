@@ -8,11 +8,8 @@ class Home extends Component {
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1 header">
-            <img src={logo} alt="drizzle-logo" />
-            <h1>Drizzle Examples</h1>
-            <p>Examples of how to get started with Drizzle in various situations.</p>
-
-            <br/><br/>
+            {/* <img src={logo} alt="drizzle-logo" /> */}
+            <h1>fun&sup2;der, Fun Funder</h1>
           </div>
 
           <div className="pure-u-1-1">

@@ -1,23 +1,33 @@
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { DrizzleProvider } from 'drizzle-react';
+import { LoadingContainer } from 'drizzle-react-components';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router'
-import { DrizzleProvider } from 'drizzle-react'
+import { Route, Router } from 'react-router';
+import App from './App';
+import drizzleOptions from './drizzleOptions';
+import { history, store } from './store';
 
-// Layouts
-import App from './App'
-import { LoadingContainer } from 'drizzle-react-components'
+const LoadingComp = () => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh'
+    }}
+  >
+    <CircularProgress />
+  </div>
+);
 
-import { history, store } from './store'
-import drizzleOptions from './drizzleOptions'
-
-ReactDOM.render((
-    <DrizzleProvider options={drizzleOptions} store={store}>
-      <LoadingContainer>
-        <Router history={history} store={store}>
-          <Route exact path="/" component={App} />
-        </Router>
-      </LoadingContainer>
-    </DrizzleProvider>
-  ),
+ReactDOM.render(
+  <DrizzleProvider options={drizzleOptions} store={store}>
+    <LoadingContainer loadingComp={<LoadingComp />}>
+      <Router history={history} store={store}>
+        <Route exact path="/" component={App} />
+      </Router>
+    </LoadingContainer>
+  </DrizzleProvider>,
   document.getElementById('root')
 );

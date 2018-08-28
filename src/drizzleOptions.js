@@ -1,6 +1,7 @@
 import ComplexStorage from './../build/contracts/ComplexStorage.json'
 import SimpleStorage from './../build/contracts/SimpleStorage.json'
 import TutorialToken from './../build/contracts/TutorialToken.json'
+import Fun2der from './../build/contracts/Fun2der.json'
 
 const drizzleOptions = {
   web3: {
@@ -13,10 +14,12 @@ const drizzleOptions = {
   contracts: [
     ComplexStorage,
     SimpleStorage,
-    TutorialToken
+    TutorialToken,
+    Fun2der
   ],
   events: {
-    SimpleStorage: ['StorageSet']
+    SimpleStorage: ['StorageSet'],
+    // Fun2der: ['ProjectCreate', 'Finalized', 'TokenPurchase']
   },
   polls: {
     accounts: 1500
