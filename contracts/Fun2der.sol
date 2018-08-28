@@ -67,8 +67,6 @@ contract Project is Ownable {
     beneficiary = _beneficiary;
     // Create token for the lifetime of product crowdsale, by Project
     token = new Fun2derToken();
-    // token.mint(0xca35b7d915458ef540ade6068dfe2f44e8fa733c, 123);
-    // token.mint(0xca35b7d915458ef540ade6068dfe2f44e8fa733c, 456);
     emit ProjectCreate(_name, _desc, img, content, _beneficiary, token);
   }
   
@@ -154,7 +152,7 @@ contract Fun2der is Ownable {
     _rounds = _project.getRounds();
     _hasActiveCampaign = _project.hasActiveCampaign();
   }
-  
+
   function getOwnProjects() public view returns (address[]) {
     return fundraisers[msg.sender];
   }
